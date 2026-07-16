@@ -1,6 +1,6 @@
-========================================================================
+
                  CRYPTOCURRENCY PRICE PREDICTION PLATFORM
-========================================================================
+
 
 A production-ready, end-to-end Machine Learning web application that 
 predicts cryptocurrency price trends. This project consolidates an 
