@@ -91,7 +91,7 @@ six distinct execution phases:
 
 
 ------------------------------------------------------------------------
-📁 REPOSITORY STRUCTURE
+ REPOSITORY STRUCTURE
 ------------------------------------------------------------------------
 ├── app.py                  # Flask web application & API routing
 ├── train.py                # Complete M1-M6 machine learning pipeline
