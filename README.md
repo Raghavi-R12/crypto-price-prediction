@@ -142,4 +142,23 @@ six distinct execution phases:
   * Random Forest Regressor/Classifier (Final Production Model)
 ========================================================================
 
+## Application Interface
+
+### Interactive Dashboard
+Below is the live interactive interface of the platform running locally on port 5001:
+
+![Crypto Price Predictor Interface](Dashboard.jpg)
+
+### Real-Time Live Inference
+Once data is submitted, the serialized Random Forest model dynamically processes the inputs to return instantaneous price target metrics:
+
+![Prediction Output](Output%20Crypto%20model.jpg)
+ ### 🔍 How the Prediction Model Works
+
+When a user inputs data into the dashboard (for example: an Opening Price of $58,250, a High of $59,100, a Low of $57,800, and a Trading Volume of 25,000,000), the backend pipeline executes live inference using the serialized model:
+
+1. **Feature Construction:** The system reads the raw price data and immediately maps it to the historical data matrix to compute real-time structural features, including intra-day volatility spreads and momentum trends.
+2. **Mathematical Transformation:** To prevent high-value asset inputs from skewing calculation parameters, the features are dynamically normalized through standard scaling:
+   $$z = \frac{x - \mu}{\sigma}$$
+3. **Random Forest Inference:** The preprocessed vector is fed into the ensemble `crypto_model.pkl` pipeline. The production Random Forest architecture aggregates decision pathways across multiple individual trees, averaging out individual estimator variance to produce a robust, generalized next-step price target estimate.
 
