@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Price Predictor</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #1e293b;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 450px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #38bdf8;
+        }
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid #475569;
+            background-color: #0f172a;
+            color: white;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        input:focus {
+            outline: none;
+            border-color: #38bdf8;
+        }
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 6px;
+            background-color: #38bdf8;
+            color: #0f172a;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 0.5rem;
+        }
+        button:hover {
+            background-color: #0ea5e9;
+        }
+        .result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 6px;
+            background-color: #0f172a;
+            border-left: 4px solid #10b981;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crypto Price Predictor</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="open_price">Opening Price ($)</label>
+                <input type="number" step="any" name="open_price" id="open_price" required placeholder="e.g. 45000">
+            </div>
+            <div class="form-group">
+                <label for="high_price">High Price ($)</label>
+                <input type="number" step="any" name="high_price" id="high_price" required placeholder="e.g. 46200">
+            </div>
+            <div class="form-group">
+                <label for="low_price">Low Price ($)</label>
+                <input type="number" step="any" name="low_price" id="low_price" required placeholder="e.g. 44800">
+            </div>
+            <div class="form-group">
+                <label for="volume">Trading Volume</label>
+                <input type="number" step="any" name="volume" id="volume" required placeholder="e.g. 1500000">
+            </div>
+            <button type="submit">Predict Price</button>
+        </form>
+
+        {% if prediction_text %}
+            <div class="result">
+                {{ prediction_text }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
